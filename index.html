@@ -1,0 +1,147 @@
+﻿<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Telecentro</title>
+		<link rel="stylesheet" type="text/css" href="css/estilos.css">
+		<meta name="descripcion" content="Pagina creada por Renzo Matonti y Pilar Banchero con el objetivo de 
+		completar el primer Obligatorio de Programacion 1 Carrera: Licenciatura en sistemas ORT Uruguay"/>
+		<script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+		<script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+		<script type="text/javascript" src="js/Clases.js"/></script>
+		<script type="text/javascript" src="js/Telecentro.js"></script> 
+		<!-- Autores: Pilar Banchero(231587) y Renzo Matonti(230829)-->
+	</head>
+	
+	<body>
+	
+		<header id="header">
+			<a href="index.html"><img src="img/logo.png" alt="Logo de la pagina"/></a>
+		</header>
+		
+		<nav id="menu">
+			<ul id="menuopciones">
+				<li>
+					<a href="#op" class="menu" id="boton1">Operadores</a>
+				</li>
+				<li>
+					<a href="#call" class="menu" id="boton2">Llamadas</a>
+				</li>
+				<li>
+					<a href="#cons" class="menu" id="boton3">Consultas</a>
+				</li>
+			</ul>
+		</nav>
+				
+		<section class="bloque">
+			<!-- Inicio Manejo de Operadores -->
+			<div> 
+				<h3 class="title" id="op">Manejo de Operadores</h3>
+				<p class="subtitle">Registro de Operadores</p>
+
+				<form class="form" action="#" id="regOp">
+					<label for="nombre">Nombre: </label>
+					<input type="text" id="nombre" placeholder="Nombre" maxlength="20" required>
+					<label for="edad"> Edad: </label>
+					<input type="number" id="edad" min="18" max="65" placeholder="Edad" required>
+					<label for="mail"> Mail: </label>
+					<input type="email" id="mail" placeholder="Mail" required>
+					<button id="addOp">Agregar</button>
+				</form>
+		
+				<p class="subtitle">Visualización de Operadores</p>
+			
+				<label>Orden:</label>
+				<input type="radio" name="orden" id="OrdenNom" checked="checked" >Nombre
+				<input type="radio" name="orden" id="OrdenEdad">Edad
+				
+				<ul id="listaOp">
+				</ul>	
+			</div>
+		
+			<!-- Fin de Manejo de operadores -->
+
+			<!-- Inicio Manejo de Llamadas -->
+			<article>
+				<h3 class="title" id="call">Manejo de Llamadas</h3>
+			
+				<p class="subtitle">Registro de Llamadas</p>
+			
+				<form class="form" action="#" id="regLlamadas">
+					<Label for="opselect">Operador: </Label>
+					<select name="opselect" id="selectOp" required>
+					</select>
+					<Label for="desc">Descripción</label>
+					<input type="text" id="desc" placeholder="Descripción" required>
+					<Label for="motivo">Motivo</Label>
+					<input type="number" min="1" max="6" id="motivo" placeholder="1" required>
+					<Label for="duracion">Duración:</label>
+					<input type="number" min="1" max="60" id="duracion" placeholder="1" required>
+					<Label for="celular">Celular:</Label>
+					<input type="tel" name="Celular" id="celular" placeholder="Celular" pattern="(09[1-9][0-9]{6})" title="numero de celular que inicie con 091 - 099 y debe ser 9 digitos de largo" required>
+					<button id="addCall">Agregar</button>
+				</form>
+			
+				<p class="subtitle">Muestra de Llamadas</p>
+			
+				
+				<label>Orden:</label>
+				<input type="radio" name="ordcall" id="callNum" checked="checked">Número
+				<input type="radio" name="ordcall" id="callNom">Nombre/Número
+				
+				<table class="mostrarC" id="tablaLlamadas">
+							
+				</table>
+			</article>
+			<!-- Fin Manejo de Llamadas -->
+		
+			<!-- Inicio Consultas -->
+			<article>
+				<h3 class="title" id="cons">Consultas</h3>
+			
+				<p class="subtitle">Consultas por operador</p>
+			 
+					<Label for="OperadorConsulta">Operador: </Label>
+					<select id="OperadorConsulta" required>
+					</select>
+					<button type="submit" id="elegirOp">Consultar historia</button>
+					<ul class="motivo" id="consMotivo">
+					</ul>
+					<p id="duracionllamada"></p>
+			
+					<p id="promedioAt"></p>
+			
+			
+			
+				<p class="subtitle">Consultas por llamadas</p>
+			
+			
+					<label for="consultaDuracion">Duración: </label>
+					<input type="number" placeholder="15" id="consultaDuracion">
+					<button id="addDuración">Consultar operadores con más llamadas de esa duración</button>
+					<ul class="opllamadasduracion" id="ConsLlamadaDuracion">
+					</ul>
+					
+					<label for="palabras">Palabras: </label>
+					<input type="text" id="palabras" placeholder="ruido">
+					<button type="submit" id="consPalabras">Consultar palabras</button>
+	
+					<table class="mostrarC" id="ConsultaPalabra">
+					</table>
+					<button id="distribucionC">Distribución de llamadas</button>
+				<div id="piechart">
+				</div>
+				
+			</article>
+			<!-- Fin Consultas -->
+			
+		</section>
+				
+		<a href="#header" id="tope">Ir al tope</a>
+		
+		<footer id="footer">
+			Obligatorio de Programacion I - 1er semestre 2019 - Renzo Matonti - Pilar Banchero	  
+		</footer>
+		
+	</body>
+</html>
