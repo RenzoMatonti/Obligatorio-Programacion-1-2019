@@ -340,7 +340,7 @@ function agregarOperador(){
 	
 	if (nopude){
 		alert("Operador ya existente");
-		
+		return false;
 	}else{
 		telecentro.agregarOperador(new Operador(nom, edad, mail));
 		document.getElementById("regOp").reset();
